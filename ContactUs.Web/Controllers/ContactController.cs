@@ -18,9 +18,9 @@ namespace ContactUs.Web.Controllers
         }
 
         [HttpGet("{id}", Name = "GetContact")]
-        public async Task<Contact> GetContact(int id)
+        public Contact GetContact(int id)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); // Added in order for location to be generated on create
         }
 
         [HttpPost("[action]")]

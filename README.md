@@ -18,7 +18,7 @@ Prerequisites:
 * [.NET Core 2.0](https://www.microsoft.com/net/core) (or later) SDK
 * [Node.js](https://nodejs.org/) version 6 (or later)
 
-Run the following commands from a console prompt:
+To run, open a console prompt within the ContactUs.Web folder, then execute the following commands:
 
   npm install
   dotnet run
