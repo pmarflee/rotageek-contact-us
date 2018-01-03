@@ -20,8 +20,8 @@ Prerequisites:
 
 To run, open a console prompt within the ContactUs.Web folder, then execute the following commands:
 
-  npm install
-  dotnet run
+    npm install
+    dotnet run
   
 Alternatively, open and run the solution from Visual Studio 2017
 
