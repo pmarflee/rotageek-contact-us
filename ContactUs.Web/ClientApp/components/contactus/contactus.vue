@@ -3,6 +3,7 @@
   <h1>Contact Us</h1>
   <form id="contact-form" method="post" action="api/contact/create" role="form" @submit.prevent="validateAndSubmit">
     <p v-if="showSuccessMessage" class="alert alert-success" role="alert">Your message was submitted successfully</p>
+    <p v-if="showFailureMessage" class="alert alert-danger" role="alert">An error occurred while submitting your message</p>
     <div class="controls">
       <div class="row">
         <div class="col-md-2">

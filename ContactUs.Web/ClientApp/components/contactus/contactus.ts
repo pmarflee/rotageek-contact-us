@@ -1,16 +1,6 @@
 ﻿import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
-interface Contact {
-    contactId: number;
-    title: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    message: string;
-    createDate: Date;
-}
-
 @Component
 export default class ContactUsComponent extends Vue {
     title: string = '';
@@ -19,12 +9,14 @@ export default class ContactUsComponent extends Vue {
     email: string = '';
     message: string = '';
     showSuccessMessage: boolean = false;
+    showFailureMessage: boolean = false;
 
     readonly titles: string[] = [ 'Mr', 'Mrs', 'Miss', 'Ms', 'Master' ];
 
     validateAndSubmit() {
         this.$validator.validateAll().then((result) => {
             if (result) {
+                this.showFailureMessage = false;
                 this.submit();
                 return;
             }
@@ -49,10 +41,13 @@ export default class ContactUsComponent extends Vue {
                 message: this.message
             })
         })
-        .then(response => response.json() as Promise<Contact>)
-        .then(data => {
-            this.showSuccessMessage = true;
-            setTimeout(() => this.showSuccessMessage = false, 5000);
+        .then(response => {
+            if (response.status === 201) {
+                this.showSuccessMessage = true;
+                setTimeout(() => this.showSuccessMessage = false, 5000);
+            } else {
+                this.showFailureMessage = true;
+            }
         });
     }
 }
